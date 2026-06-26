@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Budget Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div>
+                <h1>Budget Visualizer</h1>
+                <p class="subtitle" id="current-month">June 2026</p>
+            </div>
+            <div class="total-summary">
+                <span class="summary-label">Total Spent</span>
+                <h2 class="summary-amount" id="total-spent">$0.00</h2>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <section class="panel input-panel">
+                <h3>Add Transaction</h3>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select id="type" name="type">
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="Housing">Housing</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" name="amount" step="0.01" min="0.01" required placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Note (Optional)</label>
+                        <input type="text" id="note" name="note" placeholder="E.g., Groceries">
+                    </div>
+                    <button type="submit" class="btn-primary">Add Entry</button>
+                </form>
+            </section>
+
+            <div class="dashboard-column">
+                
+                <section class="panel visualizer-panel">
+                    <h3>Budget Overview</h3>
+                    <div id="budget-bars-container">
+                        <div class="budget-item">
+                            <div class="budget-header">
+                                <span class="category-name">Food</span>
+                                <span class="category-amounts">$350.00 / $500.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill warning" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="budget-item">
+                            <div class="budget-header">
+                                <span class="category-name">Transport</span>
+                                <span class="category-amounts">$190.00 / $200.00</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill danger" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        </div>
+                </section>
+
+                <section class="panel ledger-panel">
+                    <h3>Recent Transactions</h3>
+                    <ul id="transaction-list" class="ledger-list">
+                        <li class="ledger-item empty-state">No transactions yet.</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+    </div>
+ <script src="app.js"></script>
+</body>
+</html>
